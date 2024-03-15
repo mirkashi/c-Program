@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    double kilometers;
+    
+    // Input distance in kilometers
+    std::cout << "Enter distance in kilometers: ";
+    std::cin >> kilometers;
+    
+    // Convert kilometers to meters
+    double meters = kilometers * 1000;
+    
+    // Output the result
+    std::cout << "The distance in meters is: " << meters << std::endl;
+    
+    return 0;
+}
