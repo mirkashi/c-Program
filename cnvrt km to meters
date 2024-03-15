@@ -14,4 +14,26 @@ int main() {
     std::cout << "The distance in meters is: " << meters << std::endl;
     
     return 0;
+
+next part
+
+#include <iostream>
+
+int main() {
+    double kilometers = 1.0; // 1 kilometer
+    double meters;
+    double feet;
+
+    // Convert kilometers to meters
+    meters = kilometers * 1000;
+
+    // Convert meters to feet
+    feet = meters * 3.28084;
+
+    // Output the results
+    std::cout << "1 kilometer is equal to " << meters << " meters." << std::endl;
+    std::cout << meters << " meters is equal to " << feet << " feet." << std::endl;
+
+    return 0;
 }
+
