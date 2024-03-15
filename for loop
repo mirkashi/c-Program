@@ -1,0 +1,17 @@
+Certainly! Below is a simple C++ program to print numbers from 1 to 50:
+
+```cpp
+#include <iostream>
+
+int main() {
+    // Loop from 1 to 50 and print each number
+    for (int i = 1; i <= 50; ++i) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+This program uses a `for` loop to iterate from 1 to 50 and prints each number on the console.
