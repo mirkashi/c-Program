@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+int main() {
+    const int width = 40; // Width of the output window
+    const int height = 20; // Height of the output window
+
+    // Loop through each row
+    for (int y = height; y >= -height; --y) {
+        // Loop through each column
+        for (int x = -width; x <= width; ++x) {
+            // Calculate the value of the parabola equation
+            double value = pow(x / 10.0, 2) - y;
+            
+            // If the value is close to zero, print an asterisk
+            if (std::abs(value) < 0.5) {
+                std::cout << "*";
+            } else {
+                std::cout << " ";
+            }
+        }
+        // Move to the next line after printing a row
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
