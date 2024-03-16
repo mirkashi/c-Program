@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+    int i = 0; // Initialization
+
+    // Syntax: while (condition)
+    while (i < 5) {
+        std::cout << "Iteration " << i + 1 << std::endl;
+        i++; // Increment
+    }
+
+    return 0;
+}
