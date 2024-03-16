@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Define the age in years
+    int ageInYears = 25;
+    
+    // Define constants for conversion
+    const int monthsInYear = 12;
+    const int daysInYear = 365;
+    
+    // Calculate years, months, and days
+    int years = ageInYears;
+    int months = ageInYears * monthsInYear;
+    int days = ageInYears * daysInYear;
+    
+    // Output the result
+    cout << "Age: " << years << " years, " << months << " months, and " << days << " days." << endl;
+    
+    return 0;
+}
