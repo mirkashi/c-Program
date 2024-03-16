@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Define the temperature in Celsius
+    double celsius = 45.0;
+    
+    // Convert Celsius to Fahrenheit
+    double fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+    
+    // Output the result
+    cout << "45 degrees Celsius is equal to " << fahrenheit << " degrees Fahrenheit." << endl;
+    
+    return 0;
+}
