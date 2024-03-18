@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Mountain height in kilometers
+    double mountainHeightKm = 8400.0;
+
+    // Conversion factor: 1 kilometer = 3280.84 feet
+    double conversionFactor = 3280.84;
+
+    // Calculate mountain height in feet
+    double mountainHeightFeet = mountainHeightKm * conversionFactor;
+
+    // Display the result
+    cout << "Mountain height: " << mountainHeightKm << " kilometers is equivalent to " << mountainHeightFeet << " feet." << endl;
+
+    return 0;
+}
