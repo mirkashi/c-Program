@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+    string course;
+public:
+    // Constructor to initialize data members
+    Student(string n, int a, string c) {
+        name = n;
+        age = a;
+        course = c;
+    }
+
+    // Function to display student details
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Course: " << course << endl;
+    }
+};
+
+int main() {
+    string name, course;
+    int age;
+
+    // Input student details
+    cout << "Enter student name: ";
+    getline(cin, name);
+    cout << "Enter student age: ";
+    cin >> age;
+    cin.ignore(); // Ignore newline character in buffer
+    cout << "Enter student course: ";
+    getline(cin, course);
+
+    // Create student object
+    Student student1(name, age, course);
+
+    // Display student details
+    cout << "\nStudent Details:\n";
+    student1.display();
+
+    return 0;
+}
