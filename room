@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    bool roomOccupied = false; // Initially, room is not occupied
+
+    // Check if the room is occupied
+    if (roomOccupied) {
+        cout << "Sorry, the room is already occupied. You cannot enter." << endl;
+    } else {
+        cout << "Welcome! You can enter the room." << endl;
+        roomOccupied = true; // Set room as occupied
+    }
+
+    return 0;
+}
