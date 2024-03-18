@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int maxAmmo = 32;
+    const int maxReloads = 3;
+    int ammo = maxAmmo;
+    int reloads = 0;
+
+    cout << "AKM Ammo: " << ammo << endl;
+
+    // Loop until ammo runs out or maximum reloads reached
+    while (ammo > 0 && reloads < maxReloads) {
+        // Simulate firing
+        for (int i = 0; i < maxAmmo; ++i) {
+            cout << "Firing shot " << (i + 1) << endl;
+            --ammo; // Decrease ammo count for each shot
+            if (ammo == 0) {
+                cout << "Out of ammo. Reloading..." << endl;
+                ++reloads; // Increase reload count when ammo runs out
+                ammo = maxAmmo; // Reload the gun with full ammo
+                break; // Exit firing loop
+            }
+        }
+    }
+
+    cout << "AKM Ammo: " << ammo << endl;
+    cout << "Reloads used: " << reloads << endl;
+
+    return 0;
+}
