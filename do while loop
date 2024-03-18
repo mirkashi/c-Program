@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    
+    // Prompt the user to enter a number until a positive number is entered
+    do {
+        cout << "Enter a positive number: ";
+        cin >> num;
+        
+        // Check if the number is positive
+        if (num <= 0) {
+            cout << "Please enter a positive number." << endl;
+        }
+    } while (num <= 0);
+
+    cout << "You entered: " << num << endl;
+
+    return 0;
+}
