@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+#include <curl/curl.h>
+#include <jsoncpp/json/json.h>
+
+using namespace std;
+
+// Callback function to write received data
+size_t writeCallback(void *contents, size_t size, size_t nmemb, string *buffer) {
+    buffer->append((char *)contents, size * nmemb);
+    return size * nmemb;
+}
+
+int main() {
+    CURL *curl;
+    CURLcode res;
+    string apiKey = "YOUR_API_KEY"; // Replace with your API key from OpenWeatherMap
+    string city;
+    cout << "Enter city name: ";
+    getline(cin, city);
+
+    string url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+
+    curl_global_init(CURL_GLOBAL_ALL);
+    curl = curl_easy_init();
+    string responseBuffer;
+
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseBuffer);
+
+        res = curl_easy_perform(curl);
+        if (res != CURLE_OK) {
+            cerr << "Error: " << curl_easy_strerror(res) << endl;
+        } else {
+            // Parse JSON response
+            Json::Value root;
+            Json::Reader reader;
+            bool parsingSuccessful = reader.parse(responseBuffer, root);
+            if (parsingSuccessful) {
+                string description = root["weather"][0]["description"].asString();
+                double temperature = root["main"]["temp"].asDouble() - 273.15; // Convert temperature to Celsius
+
+                cout << "Weather in " << city << ": " << description << endl;
+                cout << "Temperature: " << temperature << " Celsius" << endl;
+            } else {
+                cerr << "Failed to parse JSON response" << endl;
+            }
+        }
+
+        curl_easy_cleanup(curl);
+    }
+
+    curl_global_cleanup();
+
+    return 0;
+}
