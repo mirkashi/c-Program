@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+// Function to predict goal scoring probability
+int predictGoalScorer() {
+    // Seed the random number generator
+    srand(time(0));
+    
+    // Generate a random number between 1 and 100
+    int randomNumber = rand() % 100 + 1;
+    
+    // Define thresholds for different goal scorers
+    int player1Threshold = 30; // Adjust these values based on player statistics
+    int player2Threshold = 50;
+    int player3Threshold = 70;
+    
+    // Predict the goal scorer based on the random number
+    if (randomNumber <= player1Threshold) {
+        return 1; // Player 1 scores
+    } else if (randomNumber <= player2Threshold) {
+        return 2; // Player 2 scores
+    } else if (randomNumber <= player3Threshold) {
+        return 3; // Player 3 scores
+    } else {
+        return 0; // No goal scored
+    }
+}
+
+int main() {
+    // Call the function to predict the goal scorer
+    int goalScorer = predictGoalScorer();
+    
+    // Display the predicted goal scorer
+    if (goalScorer == 0) {
+        cout << "No goal scored in this match." << endl;
+    } else {
+        cout << "Goal scored by Player " << goalScorer << "!" << endl;
+    }
+    
+    return 0;
+}
