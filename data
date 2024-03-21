@@ -36,4 +36,70 @@ void searchRecord(int id) {
             }
         }
         if (!found) {
-            cout << "Record not found."
+            cout << "Record not found." << endl;
+        }
+        file.close();
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+}
+
+void displayAllRecords() {
+    ifstream file("students.txt");
+    if (file.is_open()) {
+        int studentId;
+        string name;
+        int age;
+        while (file >> studentId >> name >> age) {
+            cout << "Student ID: " << studentId << ", Name: " << name << ", Age: " << age << endl;
+        }
+        file.close();
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+}
+
+int main() {
+    int choice;
+    Student newStudent;
+
+    do {
+        cout << "\nDatabase Menu\n";
+        cout << "1. Add Record\n";
+        cout << "2. Search Record\n";
+        cout << "3. Display All Records\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter student ID: ";
+                cin >> newStudent.id;
+                cout << "Enter student name: ";
+                cin.ignore();
+                getline(cin, newStudent.name);
+                cout << "Enter student age: ";
+                cin >> newStudent.age;
+                addRecord(newStudent);
+                break;
+            case 2:
+                int searchId;
+                cout << "Enter student ID to search: ";
+                cin >> searchId;
+                searchRecord(searchId);
+                break;
+            case 3:
+                cout << "All Records:" << endl;
+                displayAllRecords();
+                break;
+            case 4:
+                cout << "Exiting program." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
