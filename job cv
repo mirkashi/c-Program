@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int repetitions;
+
+    cout << "How many times do you want to check for freelancer jobs? ";
+    cin >> repetitions;
+
+    for (int i = 0; i < repetitions; i++) {
+        cout << "Is there any job for a freelancer?" << endl;
+    }
+
+    return 0;
+}
