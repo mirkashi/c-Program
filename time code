@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>  // For formatting the output
+#include <chrono>   // For time-related functions
+#include <thread>   // For sleep functionality
+
+using namespace std;
+
+int main() {
+    while (true) {
+        // Get the current time
+        auto now = chrono::system_clock::now();
+        time_t currentTime = chrono::system_clock::to_time_t(now);
+
+        // Convert to local time
+        tm *localTime = localtime(&currentTime);
+
+        // Clear the console (works for most systems)
+        #if defined(_WIN32) || defined(_WIN64)
+            system("cls");  // Clear screen for Windows
+        #else
+            system("clear"); // Clear screen for Linux/Mac
+        #endif
+
+        // Display the time in HH:MM:SS format
+        cout << "Digital Watch: ";
+        cout << setw(2) << setfill('0') << localTime->tm_hour << ":"
+             << setw(2) << setfill('0') << localTime->tm_min << ":"
+             << setw(2) << setfill('0') << localTime->tm_sec << endl;
+
+        // Sleep for 1 second
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+
+    return 0;
+}
