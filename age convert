@@ -2,14 +2,14 @@
 using namespace std;
 
 int main() {
-    // Define the age in years
+    /// Define the age in years
     int ageInYears = 25;
     
-    // Define constants for conversion
+    //// Define constants for conversion
     const int monthsInYear = 12;
     const int daysInYear = 365;
     
-    // Calculate years, months, and days
+    //// Calculate years, months, and days
     int years = ageInYears;
     int months = ageInYears * monthsInYear;
     int days = ageInYears * daysInYear;
